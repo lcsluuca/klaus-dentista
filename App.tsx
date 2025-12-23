@@ -8,9 +8,9 @@ import {
   BEFORE_AFTER_PAIRS, 
   FEATURES, 
   STEPS 
-} from './constants';
-import { PrimaryButton } from './components/Button';
-import { Lightbox } from './components/Lightbox';
+} from './constants.tsx';
+import { PrimaryButton } from './components/Button.tsx';
+import { Lightbox } from './components/Lightbox.tsx';
 
 const App: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -38,7 +38,7 @@ const App: React.FC = () => {
               
               <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-serif font-black leading-tight text-slate-900">
                 Eu sou Klaus Steyllon, <br/>
-                <span className="text-indigo-600 underline decoration-indigo-200 underline-offset-8">seu dentista em Araraquara.</span>
+                <span className="text-indigo-600 underline decoration-indigo-200 underline-offset-8">seu dentista.</span>
               </h1>
               
               <p className="max-w-xl mb-10 text-lg md:text-xl text-slate-600 font-medium mx-auto lg:mx-0 leading-relaxed">
@@ -59,7 +59,6 @@ const App: React.FC = () => {
             {/* Right Photo Column */}
             <div className="flex-1 relative order-1 lg:order-2 w-full max-w-md lg:max-w-none">
               <div className="relative group">
-                {/* Decorative background shape */}
                 <div className="absolute -inset-4 bg-indigo-50 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
                 <img 
                   src={IMAGES.hero} 
@@ -212,41 +211,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4 text-slate-900">Como funciona a sua primeira consulta</h2>
-            <p className="text-slate-500">Um processo simples, transparente e acolhedor.</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            {STEPS.map((step, idx) => (
-              <div key={idx} className="relative text-center group">
-                <div className="text-6xl font-black text-slate-50 mb-[-1.5rem] select-none transition-colors group-hover:text-indigo-50">
-                  {step.number}
-                </div>
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-4 text-slate-900">{step.title}</h3>
-                  <p className="text-slate-600">{step.description}</p>
-                </div>
-                {idx < 2 && (
-                  <ChevronRight className="hidden md:block absolute top-1/2 -right-8 text-indigo-100" size={32} />
-                )}
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-16 p-8 bg-slate-50 rounded-3xl text-center max-w-2xl mx-auto border border-slate-100">
-            <p className="text-indigo-600 font-bold text-lg mb-2">Reforçando:</p>
-            <p className="text-slate-700 font-medium">
-              A primeira consulta é 100% gratuita e sem qualquer compromisso. O objetivo é avaliar sua saúde e apresentar as melhores soluções.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Expert in Action - FIXING HEAD CROP */}
+      {/* Expert in Action */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -257,7 +222,6 @@ const App: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
               <div className="relative group overflow-hidden rounded-[2rem] shadow-xl bg-white p-1">
-                {/* Fixed Head Crop: Removing restricted aspect ratio and using object-contain to ensure the whole image is visible */}
                 <img 
                   src={IMAGES.backstage[1]} 
                   alt="Equipe Dr. Klaus" 
@@ -265,7 +229,7 @@ const App: React.FC = () => {
                   onClick={() => openLightbox(IMAGES.backstage[1])}
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-8 pt-20 rounded-b-[1.8rem]">
-                  <span className="text-white text-xl font-bold">Atendimento personalizado com nossa equipe</span>
+                  <span className="text-white text-xl font-bold">Atendimento personalizado</span>
                 </div>
               </div>
             </div>
@@ -299,45 +263,6 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="bg-indigo-50 rounded-[3rem] p-12 md:p-24 flex flex-col items-center text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-indigo-600"></div>
-            
-            <h2 className="text-4xl md:text-5xl font-serif font-black mb-8 text-slate-900 leading-tight">
-              Dê o primeiro passo para o <br/>
-              <span className="text-indigo-600">sorriso dos seus sonhos.</span>
-            </h2>
-            
-            <p className="max-w-2xl mb-12 text-lg text-slate-600 leading-relaxed">
-              Garanta sua primeira consulta gratuita. Estou à disposição para ouvir suas necessidades e planejar o melhor caminho para sua saúde bucal.
-            </p>
-            
-            <div className="w-full md:w-auto">
-              <PrimaryButton className="w-full md:w-auto scale-110 hover:scale-115 text-lg">
-                Agenda consulta gratuita no Instagram
-              </PrimaryButton>
-            </div>
-            
-            <div className="mt-12 flex flex-wrap justify-center gap-6">
-              <div className="flex items-center gap-2 text-indigo-800 font-semibold text-sm">
-                <CheckCircle2 size={18} />
-                <span>100% Gratuito</span>
-              </div>
-              <div className="flex items-center gap-2 text-indigo-800 font-semibold text-sm">
-                <CheckCircle2 size={18} />
-                <span>Sem Compromisso</span>
-              </div>
-              <div className="flex items-center gap-2 text-indigo-800 font-semibold text-sm">
-                <CheckCircle2 size={18} />
-                <span>Atendimento pelo Expert</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-12 bg-slate-50 border-t border-slate-100">
         <div className="container mx-auto px-6">
@@ -345,7 +270,6 @@ const App: React.FC = () => {
             <div className="text-center md:text-left">
               <h3 className="text-xl font-serif font-bold text-slate-900">{EXPERT_NAME}</h3>
               <p className="text-slate-500 text-sm mt-1">Dentista • Prof. Esp. & MsC em Odontopediatria</p>
-              <p className="text-slate-400 text-xs mt-1">Natal - Rio Grande do Norte</p>
             </div>
             
             <div className="flex items-center gap-6">
@@ -362,7 +286,6 @@ const App: React.FC = () => {
           
           <div className="mt-12 pt-8 border-t border-slate-200 text-center text-slate-400 text-xs">
             <p>© {new Date().getFullYear()} {EXPERT_NAME}. Todos os direitos reservados.</p>
-            <p className="mt-2 font-medium italic">Design Premium focado em Alta Conversão</p>
           </div>
         </div>
       </footer>

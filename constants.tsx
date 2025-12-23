@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { ShieldCheck, CalendarCheck, HeartPulse, UserCheck, Award, GraduationCap } from 'lucide-react';
-import { BeforeAfterPair, GalleryItem } from './types';
+import { ShieldCheck, HeartPulse, UserCheck, Award } from 'lucide-react';
+import { BeforeAfterPair, GalleryItem } from './types.ts';
 
 export const EXPERT_NAME = "Klaus Steyllon Santos";
 export const INSTAGRAM_URL = "https://www.instagram.com/klausteyllon/";
@@ -67,7 +67,7 @@ export const STEPS = [
   {
     number: "01",
     title: "Contato Inicial",
-    description: "Clique no botão e fale comigo diretamente via Instagram/WhatsApp para tirar suas dúvidas."
+    description: "Clique no botão e fale comigo diretamente via Instagram para tirar suas dúvidas."
   },
   {
     number: "02",

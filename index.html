@@ -13,9 +13,13 @@
       body {
         font-family: 'Plus Jakarta Sans', sans-serif;
         scroll-behavior: smooth;
+        background-color: #f8fafc; /* slate-50 */
       }
       .font-serif {
         font-family: 'Playfair Display', serif;
+      }
+      #root {
+        min-height: 100vh;
       }
     </style>
   <script type="importmap">
@@ -31,5 +35,7 @@
 </head>
   <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
     <div id="root"></div>
+    <!-- PONTO DE ENTRADA DO SCRIPT -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
